@@ -1,0 +1,14 @@
+{
+  "name": "multiplayer-canvas-osc",
+  "version": "1.0.0",
+  "description": "4-player p5.js canvas to Max/MSP via OSC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-osc": "^8.0.0",
+    "socket.io": "^4.6.1"
+  }
+}
