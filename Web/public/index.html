@@ -7,24 +7,191 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <style>
-        body { margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; background: #222; color: white; font-family: sans-serif; }
-        canvas { touch-action: none; border: 2px solid #555; margin-top: 10px; }
-        .controls { margin: 15px 10px 5px 10px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; }
-        button { padding: 10px 15px; font-size: 14px; border: none; border-radius: 5px; cursor: pointer; background: #444; color: white; transition: 0.2s; }
-        button.active { background: #fff; color: #000; font-weight: bold; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
-        .color-picker-container { display: flex; align-items: center; gap: 10px; background: #333; padding: 5px 15px; border-radius: 5px; }
-        input[type="color"] { width: 40px; height: 40px; padding: 0; border: none; border-radius: 50%; cursor: pointer; }
-        
-        #effectBtn.active { background: #ffaa00; color: #000; }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center;
+            background: #111; color: #eee;
+            font-family: 'Helvetica Neue', sans-serif;
+            min-height: 100svh;
+            overflow-x: hidden;
+        }
+
+        /* --- Status bar --- */
+        #statusbar {
+            width: 100%; max-width: 512px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 12px;
+            font-size: 12px; color: #888;
+        }
+        #conn-dot {
+            display: inline-block; width: 8px; height: 8px;
+            border-radius: 50%; background: #555;
+            margin-right: 5px; transition: background 0.3s;
+        }
+        #conn-dot.online { background: #4caf50; }
+
+        /* --- Canvas --- */
+        canvas { touch-action: none; display: block; }
+
+        /* --- Draw controls --- */
+        #draw-controls {
+            width: 100%; max-width: 512px;
+            display: flex; flex-wrap: wrap; gap: 8px;
+            align-items: center; justify-content: center;
+            padding: 10px 12px;
+        }
+
+        .color-wrap {
+            display: flex; align-items: center; gap: 8px;
+            background: #222; padding: 6px 12px; border-radius: 8px;
+        }
+        .color-wrap label { font-size: 12px; color: #888; }
+        input[type="color"] {
+            width: 36px; height: 36px;
+            padding: 0; border: none; border-radius: 50%; cursor: pointer;
+            background: none;
+        }
+
+        .effect-group {
+            display: flex; gap: 6px;
+        }
+        .effect-btn {
+            padding: 8px 14px; font-size: 13px;
+            border: 1px solid #444; border-radius: 8px;
+            cursor: pointer; background: #1e1e1e; color: #aaa;
+            transition: all 0.15s; min-width: 48px; text-align: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .effect-btn:active { transform: scale(0.95); }
+        .effect-btn.active {
+            background: #fff; color: #000;
+            border-color: #fff; font-weight: bold;
+        }
+        .effect-btn#btn-off.active { background: #444; color: #eee; border-color: #666; }
+        .effect-btn#btn-spray.active { background: #ff7043; color: #fff; border-color: #ff7043; }
+        .effect-btn#btn-wave.active { background: #42a5f5; color: #fff; border-color: #42a5f5; }
+        .effect-btn#btn-cross.active { background: #ab47bc; color: #fff; border-color: #ab47bc; }
+
+        .clear-btn {
+            padding: 8px 14px; font-size: 13px;
+            border: 1px solid #555; border-radius: 8px;
+            cursor: pointer; background: #1e1e1e; color: #f44336;
+            transition: all 0.15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .clear-btn:active { transform: scale(0.95); background: #2a1a1a; }
+
+        /* --- Param panel --- */
+        #param-panel {
+            width: 100%; max-width: 512px;
+            border-top: 1px solid #2a2a2a;
+        }
+        #param-toggle {
+            width: 100%; padding: 10px 16px;
+            background: none; border: none; border-bottom: 1px solid transparent;
+            color: #666; font-size: 13px; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #param-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+        #param-toggle.open .arrow { transform: rotate(180deg); }
+        #param-toggle.open { border-bottom-color: #2a2a2a; }
+
+        #param-body {
+            display: none;
+            padding: 10px 16px 16px;
+            gap: 14px;
+            flex-direction: column;
+        }
+        #param-body.open { display: flex; }
+
+        .param-row {
+            display: flex; align-items: center; gap: 10px;
+        }
+        .param-label {
+            font-size: 11px; color: #777; width: 80px; flex-shrink: 0; text-align: right;
+        }
+        .param-slider {
+            flex: 1; height: 4px; cursor: pointer;
+            accent-color: #7c8fff;
+            -webkit-appearance: none; appearance: none;
+            background: #333; border-radius: 2px;
+            outline: none;
+        }
+        .param-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: #7c8fff;
+            cursor: pointer;
+        }
+        .param-val {
+            font-size: 11px; color: #555; width: 36px; text-align: right; flex-shrink: 0;
+        }
     </style>
 </head>
 <body>
-    <div class="controls">
-        <button id="effectBtn">？</button>
-        
-        <div class="color-picker-container">
-            <label for="colorPicker">Color:</label>
+
+    <div id="statusbar">
+        <span><span id="conn-dot"></span><span id="conn-label">接続中...</span></span>
+        <span id="user-count">👤 —</span>
+    </div>
+
+    <!-- p5.js canvas will be inserted here -->
+
+    <div id="draw-controls">
+        <div class="color-wrap">
+            <label for="colorPicker">Color</label>
             <input type="color" id="colorPicker" value="#ff5555">
+        </div>
+
+        <div class="effect-group">
+            <button class="effect-btn active" id="btn-off"  data-effect="0">OFF</button>
+            <button class="effect-btn"        id="btn-spray" data-effect="1">Spray</button>
+            <button class="effect-btn"        id="btn-wave"  data-effect="2">Wave</button>
+            <button class="effect-btn"        id="btn-cross" data-effect="3">Cross</button>
+        </div>
+
+        <button class="clear-btn" id="clearBtn">Clear</button>
+    </div>
+
+    <div id="param-panel">
+        <button id="param-toggle">
+            <span>MAX PARAMS</span>
+            <span class="arrow">▼</span>
+        </button>
+        <div id="param-body">
+            <div class="param-row">
+                <span class="param-label">Saturation</span>
+                <input type="range" class="param-slider" id="s-saturation" min="0" max="1" step="0.01" value="0.8">
+                <span class="param-val" id="v-saturation">0.80</span>
+            </div>
+            <div class="param-row">
+                <span class="param-label">Brightness</span>
+                <input type="range" class="param-slider" id="s-brightness" min="0" max="1" step="0.01" value="0.8">
+                <span class="param-val" id="v-brightness">0.80</span>
+            </div>
+            <div class="param-row">
+                <span class="param-label">Hue Angle</span>
+                <input type="range" class="param-slider" id="s-hue_angle" min="0" max="3.14159" step="0.01" value="0">
+                <span class="param-val" id="v-hue_angle">0.00</span>
+            </div>
+            <div class="param-row">
+                <span class="param-label">Melt</span>
+                <input type="range" class="param-slider" id="s-melt" min="1" max="15" step="0.1" value="3">
+                <span class="param-val" id="v-melt">3.0</span>
+            </div>
+            <div class="param-row">
+                <span class="param-label">Theta</span>
+                <input type="range" class="param-slider" id="s-theta" min="0" max="3.14159" step="0.01" value="0">
+                <span class="param-val" id="v-theta">0.00</span>
+            </div>
+            <div class="param-row">
+                <span class="param-label">Threshold</span>
+                <input type="range" class="param-slider" id="s-thresh" min="0" max="10" step="0.1" value="0">
+                <span class="param-val" id="v-thresh">0.0</span>
+            </div>
         </div>
     </div>
 
@@ -32,31 +199,80 @@
         const socket = io();
         let currentEffect = 0;
 
-        const effectBtn = document.getElementById('effectBtn');
-        effectBtn.onclick = () => {
-            if (currentEffect === 0) {
-                currentEffect = Math.floor(Math.random() * 3) + 1;
-                effectBtn.classList.add('active');
-                effectBtn.innerText = '！';
-            } else {
-                currentEffect = 0;
-                effectBtn.classList.remove('active');
-                effectBtn.innerText = '？';
-            }
-        };
+        // --- Connection status ---
+        const connDot = document.getElementById('conn-dot');
+        const connLabel = document.getElementById('conn-label');
+        const userCountEl = document.getElementById('user-count');
 
+        socket.on('connect', () => {
+            connDot.classList.add('online');
+            connLabel.textContent = '接続済み';
+        });
+        socket.on('disconnect', () => {
+            connDot.classList.remove('online');
+            connLabel.textContent = '切断';
+        });
+        socket.on('userCount', (n) => {
+            userCountEl.textContent = `👤 ${n}`;
+        });
+
+        // --- Effect buttons ---
+        document.querySelectorAll('.effect-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentEffect = parseInt(btn.dataset.effect);
+                document.querySelectorAll('.effect-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // --- Clear button ---
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            socket.emit('clearCanvas');
+        });
+
+        // --- Param panel toggle ---
+        const paramToggle = document.getElementById('param-toggle');
+        const paramBody = document.getElementById('param-body');
+        paramToggle.addEventListener('click', () => {
+            const isOpen = paramBody.classList.toggle('open');
+            paramToggle.classList.toggle('open', isOpen);
+        });
+
+        // --- Param sliders ---
+        const PARAM_NAMES = ['saturation', 'brightness', 'hue_angle', 'melt', 'theta', 'thresh'];
+        PARAM_NAMES.forEach(name => {
+            const slider = document.getElementById('s-' + name);
+            const valEl = document.getElementById('v-' + name);
+            slider.addEventListener('input', () => {
+                const v = parseFloat(slider.value);
+                valEl.textContent = v.toFixed(2);
+                socket.emit('paramChange', { name, value: v });
+            });
+        });
+
+        // --- Canvas clear event ---
+        socket.on('clearCanvas', () => {
+            if (typeof clear === 'function') {
+                clear();
+                background(0);
+            }
+        });
+
+        // --- Helpers ---
         function hexToRgb(hex) {
-            let bigint = parseInt(hex.substring(1), 16);
-            let r = (bigint >> 16) & 255;
-            let g = (bigint >> 8) & 255;
-            let b = bigint & 255;
-            return [r, g, b];
+            const b = parseInt(hex.substring(1), 16);
+            return [(b >> 16) & 255, (b >> 8) & 255, b & 255];
         }
 
+        // --- p5.js ---
         function setup() {
-            createCanvas(512, 512);
+            const cnv = createCanvas(512, 512);
+            cnv.parent(document.body);
+            // reorder: insert canvas between statusbar and draw-controls
+            const statusbar = document.getElementById('statusbar');
+            document.body.insertBefore(cnv.elt, statusbar.nextSibling);
             background(0);
-            
+
             socket.on('drawData', (data) => {
                 fill(data.color[0], data.color[1], data.color[2]);
                 noStroke();
@@ -65,51 +281,38 @@
         }
 
         function draw() {
-            background(0, 5); 
+            background(0, 5);
         }
 
         function sendAndDrawPoint(x, y, color) {
-            let data = {
-                x: Math.round(x),
-                y: Math.round(y),
-                color: color
-            };
-            
+            const data = { x: Math.round(x), y: Math.round(y), color };
             fill(data.color[0], data.color[1], data.color[2]);
             noStroke();
             ellipse(data.x, data.y, 20, 20);
-            
             socket.emit('drawData', data);
         }
 
         function mouseDragged() {
-            const currentHexColor = document.getElementById('colorPicker').value;
-            const myColor = hexToRgb(currentHexColor);
-
+            const myColor = hexToRgb(document.getElementById('colorPicker').value);
             if (currentEffect === 0) {
                 sendAndDrawPoint(mouseX, mouseY, myColor);
-            } 
-            else if (currentEffect === 1) {
+            } else if (currentEffect === 1) {
                 for (let i = 0; i < 4; i++) {
-                    let offsetX = random(-30, 30);
-                    let offsetY = random(-30, 30);
-                    sendAndDrawPoint(mouseX + offsetX, mouseY + offsetY, myColor);
+                    sendAndDrawPoint(mouseX + random(-30, 30), mouseY + random(-30, 30), myColor);
                 }
-            } 
-            else if (currentEffect === 2) {
-                let offsetX = sin(frameCount * 0.5) * 40;
-                let offsetY = cos(frameCount * 0.5) * 40;
-                sendAndDrawPoint(mouseX + offsetX, mouseY + offsetY, myColor);
-            } 
-            else if (currentEffect === 3) {
+            } else if (currentEffect === 2) {
+                const ox = sin(frameCount * 0.5) * 40;
+                const oy = cos(frameCount * 0.5) * 40;
+                sendAndDrawPoint(mouseX + ox, mouseY + oy, myColor);
+            } else if (currentEffect === 3) {
                 sendAndDrawPoint(mouseX - 20, mouseY - 20, myColor);
                 sendAndDrawPoint(mouseX + 20, mouseY + 20, myColor);
             }
         }
-        
-        function touchMoved() { 
-            mouseDragged(); 
-            return false; 
+
+        function touchMoved() {
+            mouseDragged();
+            return false;
         }
     </script>
 </body>
