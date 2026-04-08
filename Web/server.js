@@ -69,6 +69,11 @@ io.on('connection', (socket) => {
         Max.outlet('touch', data.x, data.y, data.color[0], data.color[1], data.color[2]);
     });
 
+    socket.on('eraseData', (data) => {
+        socket.broadcast.emit('eraseData', data);
+        Max.outlet('erase', data.x, data.y);
+    });
+
     // Browser → Max + broadcast to ALL browsers (including sender for full sync)
     socket.on('paramChange', (data) => {
         paramState[data.name] = data.value;

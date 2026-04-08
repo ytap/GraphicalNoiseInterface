@@ -237,8 +237,9 @@
           "id": "obj-179",
           "maxclass": "newobj",
           "numinlets": 3,
-          "numoutlets": 14,
+          "numoutlets": 15,
           "outlettype": [
+            "",
             "",
             "",
             "",
@@ -260,7 +261,7 @@
             119.0,
             22.0
           ],
-          "text": "route touch qr_ready saturation brightness hue_angle melt theta thresh mxformx mxformy offset_x offset_y clear"
+          "text": "route touch qr_ready saturation brightness hue_angle melt theta thresh mxformx mxformy offset_x offset_y clear erase"
         }
       },
       {
@@ -7297,6 +7298,277 @@
             ""
           ]
         }
+      },
+      {
+        "box": {
+          "id": "obj-erase-lcd",
+          "maxclass": "newobj",
+          "text": "jit.lcd 4 char 128 2048",
+          "patching_rect": [
+            2100.0,
+            1500.0,
+            140.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-lb",
+          "maxclass": "newobj",
+          "text": "loadbang",
+          "patching_rect": [
+            2100.0,
+            1455.0,
+            60.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            "bang"
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-frgb-init",
+          "maxclass": "message",
+          "text": "frgb 1. 1. 1.",
+          "patching_rect": [
+            2100.0,
+            1478.0,
+            80.0,
+            22.0
+          ],
+          "numinlets": 2,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-unpack",
+          "maxclass": "newobj",
+          "text": "unpack 0. 0.",
+          "patching_rect": [
+            2100.0,
+            1540.0,
+            80.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 2,
+          "outlettype": [
+            "",
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-sx",
+          "maxclass": "newobj",
+          "text": "scale 0. 512. 0. 128.",
+          "patching_rect": [
+            2100.0,
+            1565.0,
+            120.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-sy",
+          "maxclass": "newobj",
+          "text": "scale 0. 512. 0. 2048.",
+          "patching_rect": [
+            2230.0,
+            1565.0,
+            120.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-xm",
+          "maxclass": "newobj",
+          "text": "- 10",
+          "patching_rect": [
+            2100.0,
+            1590.0,
+            35.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-xp",
+          "maxclass": "newobj",
+          "text": "+ 10",
+          "patching_rect": [
+            2140.0,
+            1590.0,
+            35.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-ym",
+          "maxclass": "newobj",
+          "text": "- 160",
+          "patching_rect": [
+            2230.0,
+            1590.0,
+            40.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-yp",
+          "maxclass": "newobj",
+          "text": "+ 160",
+          "patching_rect": [
+            2275.0,
+            1590.0,
+            40.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-packcoords",
+          "maxclass": "newobj",
+          "text": "pack 0 0 0 0",
+          "patching_rect": [
+            2100.0,
+            1615.0,
+            80.0,
+            22.0
+          ],
+          "numinlets": 4,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-paintoval",
+          "maxclass": "message",
+          "text": "paintoval $1 $2 $3 $4",
+          "patching_rect": [
+            2100.0,
+            1638.0,
+            120.0,
+            22.0
+          ],
+          "numinlets": 2,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-neg",
+          "maxclass": "newobj",
+          "text": "jit.op @op * @val -1000.",
+          "patching_rect": [
+            2100.0,
+            1665.0,
+            140.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-draw-mix",
+          "maxclass": "newobj",
+          "text": "jit.op @op +",
+          "patching_rect": [
+            2100.0,
+            1690.0,
+            80.0,
+            22.0
+          ],
+          "numinlets": 2,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-erase-clamp",
+          "maxclass": "newobj",
+          "text": "jit.op @op max @val 0.",
+          "patching_rect": [
+            2100.0,
+            1715.0,
+            140.0,
+            22.0
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "outlettype": [
+            ""
+          ]
+        }
       }
     ],
     "lines": [
@@ -8713,30 +8985,6 @@
           ],
           "source": [
             "obj-239",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "destination": [
-            "obj-241",
-            0
-          ],
-          "source": [
-            "obj-240",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "destination": [
-            "obj-242",
-            0
-          ],
-          "source": [
-            "obj-241",
             0
           ]
         }
@@ -11119,6 +11367,282 @@
           ],
           "destination": [
             "obj-121",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-lb",
+            0
+          ],
+          "destination": [
+            "obj-erase-frgb-init",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-frgb-init",
+            0
+          ],
+          "destination": [
+            "obj-erase-lcd",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-238",
+            1
+          ],
+          "destination": [
+            "obj-erase-lcd",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-239",
+            0
+          ],
+          "destination": [
+            "obj-erase-lcd",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-179",
+            13
+          ],
+          "destination": [
+            "obj-erase-unpack",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-unpack",
+            0
+          ],
+          "destination": [
+            "obj-erase-sx",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-unpack",
+            1
+          ],
+          "destination": [
+            "obj-erase-sy",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-sx",
+            0
+          ],
+          "destination": [
+            "obj-erase-xm",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-sx",
+            0
+          ],
+          "destination": [
+            "obj-erase-xp",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-sy",
+            0
+          ],
+          "destination": [
+            "obj-erase-ym",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-sy",
+            0
+          ],
+          "destination": [
+            "obj-erase-yp",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-xm",
+            0
+          ],
+          "destination": [
+            "obj-erase-packcoords",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-ym",
+            0
+          ],
+          "destination": [
+            "obj-erase-packcoords",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-xp",
+            0
+          ],
+          "destination": [
+            "obj-erase-packcoords",
+            2
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-yp",
+            0
+          ],
+          "destination": [
+            "obj-erase-packcoords",
+            3
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-packcoords",
+            0
+          ],
+          "destination": [
+            "obj-erase-paintoval",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-paintoval",
+            0
+          ],
+          "destination": [
+            "obj-erase-lcd",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-lcd",
+            0
+          ],
+          "destination": [
+            "obj-erase-neg",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-240",
+            0
+          ],
+          "destination": [
+            "obj-draw-mix",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-neg",
+            0
+          ],
+          "destination": [
+            "obj-draw-mix",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-draw-mix",
+            0
+          ],
+          "destination": [
+            "obj-241",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-241",
+            0
+          ],
+          "destination": [
+            "obj-erase-clamp",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-erase-clamp",
+            0
+          ],
+          "destination": [
+            "obj-242",
             0
           ]
         }

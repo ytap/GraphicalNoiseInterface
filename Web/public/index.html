@@ -328,6 +328,10 @@
                 const s = (data.size || 20) * width / 512;
                 ellipse(data.x * width / 512, data.y * height / 512, s, s);
             });
+            socket.on('eraseData', (data) => {
+                fill(0); noStroke();
+                ellipse(data.x * width / 512, data.y * height / 512, 40 * width / 512, 40 * width / 512);
+            });
         }
 
         function draw() { background(0, 5); }
@@ -353,9 +357,22 @@
         });
 
         function mouseDragged() {
-            const color = eraserMode ? [0, 0, 0] : hexToRgb(document.getElementById('colorPicker').value);
-            const size = eraserMode ? 40 : 20;
-            sendAndDrawPoint(mouseX, mouseY, color, size);
+            if (eraserMode) {
+                sendErasePoint(mouseX, mouseY);
+            } else {
+                sendAndDrawPoint(mouseX, mouseY, hexToRgb(document.getElementById('colorPicker').value));
+            }
+        }
+
+        function sendErasePoint(x, y) {
+            const data = {
+                x: Math.round(x * 512 / width),
+                y: Math.round(y * 512 / height),
+            };
+            fill(0);
+            noStroke();
+            ellipse(x, y, 40, 40);
+            socket.emit('eraseData', data);
         }
 
         function touchMoved() {
