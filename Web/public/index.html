@@ -59,6 +59,7 @@
             -webkit-tap-highlight-color: transparent;
         }
         .clear-btn:active { transform: scale(0.95); }
+        .clear-btn.active { background: #fff; color: #000; border-color: #fff; }
 
         /* --- XY Pad section --- */
         #xy-section {
@@ -140,6 +141,7 @@
             <label for="colorPicker">Color</label>
             <input type="color" id="colorPicker" value="#ff5555">
         </div>
+        <button class="clear-btn" id="eraserBtn" style="color:#aaa;">Eraser</button>
         <button class="clear-btn" id="clearBtn">Clear</button>
         <button class="clear-btn" id="resetBtn" style="color:#aaa;">Reset Params</button>
     </div>
@@ -323,27 +325,37 @@
                 // data.x/y are normalized to 512 space — scale to local canvas
                 fill(data.color[0], data.color[1], data.color[2]);
                 noStroke();
-                ellipse(data.x * width / 512, data.y * height / 512, 20, 20);
+                const s = (data.size || 20) * width / 512;
+                ellipse(data.x * width / 512, data.y * height / 512, s, s);
             });
         }
 
         function draw() { background(0, 5); }
 
-        function sendAndDrawPoint(x, y, color) {
+        function sendAndDrawPoint(x, y, color, size = 20) {
             // Normalize to 512 space so all clients draw at the same relative position
             const data = {
                 x: Math.round(x * 512 / width),
                 y: Math.round(y * 512 / height),
-                color
+                color,
+                size
             };
             fill(color[0], color[1], color[2]);
             noStroke();
-            ellipse(x, y, 20, 20); // draw locally using raw canvas coords
+            ellipse(x, y, size, size);
             socket.emit('drawData', data);
         }
 
+        let eraserMode = false;
+        document.getElementById('eraserBtn').addEventListener('click', () => {
+            eraserMode = !eraserMode;
+            document.getElementById('eraserBtn').classList.toggle('active', eraserMode);
+        });
+
         function mouseDragged() {
-            sendAndDrawPoint(mouseX, mouseY, hexToRgb(document.getElementById('colorPicker').value));
+            const color = eraserMode ? [0, 0, 0] : hexToRgb(document.getElementById('colorPicker').value);
+            const size = eraserMode ? 40 : 20;
+            sendAndDrawPoint(mouseX, mouseY, color, size);
         }
 
         function touchMoved() {
