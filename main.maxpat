@@ -9,19 +9,83 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 134.0, -9.0, 787.0, 897.0 ],
+        "rect": [ 134.0, 86.0, 787.0, 804.0 ],
         "toolbars_unpinned_last_save": 2,
         "boxes": [
             {
                 "box": {
-                    "id": "obj-256",
+                    "id": "obj-269",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 2037.3736377954483, 321.212105512619, 150.0, 20.0 ],
+                    "patching_rect": [ 555.8503351211548, 339.52380657196045, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 2037.3736377954483, 321.212105512619, 150.0, 20.0 ],
-                    "text": "meme1234"
+                    "presentation_rect": [ 805.7938273251057, 2353.6585927009583, 150.0, 20.0 ],
+                    "text": "brush x and y depth?"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-267",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 539.6693915724754, 323.14047795534134, 150.0, 33.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 881.4035852253437, 2378.048837184906, 150.0, 33.0 ],
+                    "text": "adsr is too similar. 50-100ms fade in?"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-265",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 479.33881640434265, 352.8925424218178, 150.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 820.4279740154743, 2407.3171305656433, 150.0, 20.0 ],
+                    "text": "sounds are too similar?"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-263",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 352.8925424218178, 361.9834510087967, 150.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 686.2816293537617, 2409.756155014038, 150.0, 20.0 ],
+                    "text": "flip it?"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-261",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 345.45452630519867, 305.7851070165634, 150.0, 33.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 686.2816293537617, 2360.9756660461426, 150.0, 33.0 ],
+                    "text": "lower end is not present]  color is similar?"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-257",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1948.0, 162.0, 150.0, 20.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 2551.219573020935, 2117.073221206665, 150.0, 20.0 ],
+                    "text": "433quiet"
                 }
             },
             {
@@ -43,9 +107,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 160.54421615600586, 1117.0067920684814, 24.0, 24.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 1669.3548506498337, 1370.085483968258, 24.0, 24.0 ]
+                    "patching_rect": [ 160.54421615600586, 1117.0067920684814, 24.0, 24.0 ]
                 }
             },
             {
@@ -56,8 +118,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 199.99999809265137, 1117.0067920684814, 37.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 1707.8163895010948, 1370.085483968258, 37.0, 22.0 ],
                     "text": "open"
                 }
             },
@@ -69,8 +129,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 249.65986156463623, 1117.0067920684814, 43.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 1759.0984413027763, 1370.085483968258, 43.0, 22.0 ],
                     "text": "loop 1"
                 }
             },
@@ -82,8 +140,6 @@
                     "numoutlets": 3,
                     "outlettype": [ "signal", "signal", "bang" ],
                     "patching_rect": [ 160.54421615600586, 1167.3469276428223, 59.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 1669.3548506498337, 1421.3675357699394, 59.0, 22.0 ],
                     "text": "sfplay~ 2"
                 }
             },
@@ -142,8 +198,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 2489.70583486557, 1338.2352685928345, 65.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 1693.681802034378, 472.0, 65.0, 22.0 ],
                     "text": "script stop"
                 }
             },
@@ -192,8 +246,6 @@
                     "numoutlets": 5,
                     "outlettype": [ "float", "float", "int", "int", "int" ],
                     "patching_rect": [ 2545.454421043396, 1872.7271811962128, 111.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 2275.042537212372, 1403.0770568847656, 111.0, 22.0 ],
                     "text": "unpack 0. 0. 0 0 0"
                 }
             },
@@ -244,7 +296,7 @@
                     "patching_rect": [ 1286.0, 300.0, 150.0, 60.0 ],
                     "presentation": 1,
                     "presentation_linecount": 4,
-                    "presentation_rect": [ 1286.0, 300.0, 150.0, 60.0 ],
+                    "presentation_rect": [ 929.2683148384094, 2148.780539035797, 150.0, 60.0 ],
                     "text": "applied numbers can be showed. It can fade away when it's not used. Matching system."
                 }
             },
@@ -258,7 +310,7 @@
                     "patching_rect": [ 768.8186507225037, 264.5, 151.0, 141.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 742.0, 88.0, 463.0, 47.0 ],
+                    "presentation_rect": [ 1093.5987122356892, 2639.024453163147, 463.0, 47.0 ],
                     "text": "Actually, naming is very important. It's a complex system to discover. It'll be easy to understand if I am on your site. Make it clear that it's the second sequence. -> Letting them explore, then show the complex part later will work I think."
                 }
             },
@@ -272,7 +324,7 @@
                     "patching_rect": [ 698.103889465332, 412.0, 163.0, 167.0 ],
                     "presentation": 1,
                     "presentation_linecount": 5,
-                    "presentation_rect": [ 738.2978670597076, 0.0, 438.0, 74.0 ],
+                    "presentation_rect": [ 1088.7206633388996, 2551.219573020935, 438.0, 74.0 ],
                     "text": "editorial part: How do you want to introduce your tool? Maybe as a popup. It needs a what it is, where I am, who I am questions explained.... Then your github link can be on the page. Introduction in the beginning (About page can work.), what do you want people to know more? (You can build a main site, on how it actually work...!)"
                 }
             },
@@ -284,7 +336,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 504.0, 154.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 490.0, 102.0, 150.0, 20.0 ],
+                    "presentation_rect": [ 839.9401696026325, 2653.6585998535156, 150.0, 20.0 ],
                     "text": "which thing is open?"
                 }
             },
@@ -298,7 +350,7 @@
                     "patching_rect": [ 488.0, 80.0, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 486.0, 48.0, 150.0, 33.0 ],
+                    "presentation_rect": [ 837.5011451542377, 2600.0000619888306, 150.0, 33.0 ],
                     "text": "https://thenounproject.com/search/icons/?q=opacity"
                 }
             },
@@ -311,7 +363,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1136.0, 6.0, 150.0, 47.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 714.0, -26.5, 390.0, 20.0 ],
+                    "presentation_rect": [ 1064.3304188549519, 2524.3903040885925, 390.0, 20.0 ],
                     "text": "communicate with icon is a whole industry. What's the standard"
                 }
             },
@@ -325,7 +377,7 @@
                     "patching_rect": [ 546.0, 18.0, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 486.0, 8.0, 150.0, 33.0 ],
+                    "presentation_rect": [ 837.5011451542377, 2558.5366463661194, 150.0, 33.0 ],
                     "text": "https://volt-harp-38332355.figma.site"
                 }
             },
@@ -337,7 +389,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 494.0, -20.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 494.0, -20.0, 150.0, 20.0 ],
+                    "presentation_rect": [ 844.8182184994221, 2531.707377433777, 150.0, 20.0 ],
                     "text": "https://fontgauntlet.com"
                 }
             },
@@ -351,7 +403,7 @@
                     "patching_rect": [ 908.666708946228, 299.0, 152.0, 368.0 ],
                     "presentation": 1,
                     "presentation_linecount": 15,
-                    "presentation_rect": [ 724.0, -252.0, 353.0, 208.0 ],
+                    "presentation_rect": [ 1074.086516648531, 2300.000054836273, 353.0, 208.0 ],
                     "text": "1.mkmk\n2 canvases is the first place.... your logical. Personal and mutual canvas\n\n\"event oriented\": is a way of thinking\n\ncanvas part we don't have to think, because it's on the web/\n\nreference dj tools? -> But maybe too musicky?\n\ncolor and opacity makes sense. maybe it can be grouped. Clear can be a x box, or a refresh! (refresh icon and !) might be good. Refreshing is a big gesture. Alert is a way, but it loses casuality.\n\nopacity 100% was a bit confusing. T is confusing"
                 }
             },
@@ -524,9 +576,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ -956.1224398612976, 1628.5714130401611, 24.0, 24.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 325.8220168352127, 149.15254592895508, 82.14285635948181, 82.14285635948181 ]
+                    "patching_rect": [ -956.1224398612976, 1628.5714130401611, 24.0, 24.0 ]
                 }
             },
             {
@@ -592,8 +642,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ -956.1224398612976, 1837.755084514618, 71.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 331.3934450149536, 243.06780242919922, 71.0, 22.0 ],
                     "text": "sfrecord~ 2"
                 }
             },
@@ -727,7 +775,7 @@
                     "patching_rect": [ 1254.5454425811768, 233.76623153686523, 150.0, 74.0 ],
                     "presentation": 1,
                     "presentation_linecount": 5,
-                    "presentation_rect": [ 1244.1558322906494, 202.08441352844238, 150.0, 74.0 ],
+                    "presentation_rect": [ 1907.3171186447144, 2170.73175907135, 150.0, 74.0 ],
                     "text": "x and y can be clear, that it's a coordination based thing. Close to what it's like- make the parameters."
                 }
             },
@@ -741,7 +789,7 @@
                     "patching_rect": [ 1167.5324563980103, 251.9480495452881, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1051.612910747528, 237.56780242919922, 150.0, 33.0 ],
+                    "presentation_rect": [ 1714.634187221527, 2204.878101348877, 150.0, 33.0 ],
                     "text": "finding out can be part of the process"
                 }
             },
@@ -753,7 +801,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1099.9999895095825, 194.8051929473877, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1051.612910747528, 210.3896083831787, 150.0, 20.0 ],
+                    "presentation_rect": [ 1714.634187221527, 2178.0488324165344, 150.0, 20.0 ],
                     "text": "triggering effects?"
                 }
             },
@@ -767,7 +815,7 @@
                     "patching_rect": [ 711.103889465332, 230.58441352844238, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 870.9677481651306, 215.58441352844238, 150.0, 33.0 ],
+                    "presentation_rect": [ 1534.1463780403137, 2182.926881313324, 150.0, 33.0 ],
                     "text": "maybe this gives inspiration?"
                 }
             },
@@ -781,7 +829,7 @@
                     "patching_rect": [ 696.103889465332, 215.58441352844238, 150.0, 47.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 696.103889465332, 215.58441352844238, 150.0, 47.0 ],
+                    "presentation_rect": [ 1358.53661775589, 2182.926881313324, 150.0, 47.0 ],
                     "text": "frequency is unclear, but maybe showing a example is clear. "
                 }
             },
@@ -793,7 +841,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 451.36363220214844, 214.99999809265137, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 466.12903559207916, 225.97402381896973, 150.0, 20.0 ],
+                    "presentation_rect": [ 1129.268319606781, 2192.682979106903, 150.0, 20.0 ],
                     "text": "individual modification?"
                 }
             },
@@ -887,7 +935,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
-                    "patching_rect": [ -168.75, 1427.34375, 58.0, 22.0 ],
+                    "patching_rect": [ -166.6666877269745, 1458.8333766460419, 58.0, 22.0 ],
                     "text": "loadbang"
                 }
             },
@@ -1266,7 +1314,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1813.2352595329285, 311.7646999359131, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1723.5293788909912, 289.70587682724, 150.0, 20.0 ],
+                    "presentation_rect": [ 2426.8293261528015, 2136.5854167938232, 150.0, 20.0 ],
                     "text": "buffering microphone input"
                 }
             },
@@ -1280,7 +1328,7 @@
                     "patching_rect": [ 1497.5309838056564, 1585.185311794281, 152.0, 47.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 1497.5309838056564, 1585.185311794281, 152.0, 47.0 ],
+                    "presentation_rect": [ 2860.9756779670715, 2409.756155014038, 152.0, 47.0 ],
                     "text": "how does the audience connct?→ffa will make the emotional aspect of it..."
                 }
             },
@@ -1292,7 +1340,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1171.7391080856323, 1519.565188407898, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 2053.191474676132, 1735.679426908493, 150.0, 20.0 ],
+                    "presentation_rect": [ 3417.0732522010803, 2558.5366463661194, 150.0, 20.0 ],
                     "text": "someone can recyte it..."
                 }
             },
@@ -1306,7 +1354,7 @@
                     "patching_rect": [ 897.590394616127, 1461.4458371400833, 150.0, 47.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 1823.4042422771454, 1722.9134695529938, 150.0, 47.0 ],
+                    "presentation_rect": [ 3187.8049540519714, 2546.3415241241455, 150.0, 47.0 ],
                     "text": "simple poem can work... the beauty of simplicity showing "
                 }
             },
@@ -1320,7 +1368,7 @@
                     "patching_rect": [ 1361.4458334445953, 1503.6145133972168, 150.0, 47.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 1361.4458334445953, 1503.6145133972168, 150.0, 47.0 ],
+                    "presentation_rect": [ 2726.829333305359, 2326.8293237686157, 150.0, 47.0 ],
                     "text": "canvas not enabled is an option, those basic stuff may be good"
                 }
             },
@@ -1334,7 +1382,7 @@
                     "patching_rect": [ 1317.6667054891586, 1451.000042796135, 152.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 2234.042537212372, 1714.4028313159943, 152.0, 33.0 ],
+                    "presentation_rect": [ 3597.5610613822937, 2539.024450778961, 152.0, 33.0 ],
                     "text": "teaching the audience can be an option"
                 }
             },
@@ -1348,7 +1396,7 @@
                     "patching_rect": [ 1302.6667054891586, 1436.000042796135, 150.0, 74.0 ],
                     "presentation": 1,
                     "presentation_linecount": 5,
-                    "presentation_rect": [ 2227.659558534622, 1629.2964489459991, 150.0, 74.0 ],
+                    "presentation_rect": [ 3592.683012485504, 2453.658595085144, 150.0, 74.0 ],
                     "text": "general audience go chaos very quickly... how do we create a balance? Audience ... the ink fading out could be gopd_"
                 }
             },
@@ -1362,7 +1410,7 @@
                     "patching_rect": [ 906.0000261068344, 1483.3333766460419, 151.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 2046.8084959983826, 1684.615597486496, 151.0, 33.0 ],
+                    "presentation_rect": [ 3412.1952033042908, 2507.317132949829, 151.0, 33.0 ],
                     "text": "if the user can erase their canvas, that will be cool!?"
                 }
             },
@@ -1376,7 +1424,7 @@
                     "patching_rect": [ 891.0000261068344, 1468.3333766460419, 151.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1865.957433462143, 1684.615597486496, 151.0, 33.0 ],
+                    "presentation_rect": [ 3231.7073941230774, 2507.317132949829, 151.0, 33.0 ],
                     "text": "tiny screen to show who edited what part?"
                 }
             },
@@ -1390,7 +1438,7 @@
                     "patching_rect": [ 876.0000261068344, 1453.3333766460419, 151.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1714.8936047554016, 1684.615597486496, 151.0, 33.0 ],
+                    "presentation_rect": [ 3080.4878783226013, 2507.317132949829, 151.0, 33.0 ],
                     "text": "multiple people can take a parameter"
                 }
             },
@@ -1402,7 +1450,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ -13.0, 1017.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ -95.90163660049438, 1095.0819358825684, 150.0, 20.0 ],
+                    "presentation_rect": [ -50.79365158081055, 2349.206385612488, 150.0, 20.0 ],
                     "text": "color"
                 }
             },
@@ -1414,7 +1462,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1688.0, 256.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1688.0, 256.0, 150.0, 20.0 ],
+                    "presentation_rect": [ 2392.6829838752747, 2102.4390745162964, 150.0, 20.0 ],
                     "text": "loadbang for mic off?"
                 }
             },
@@ -1425,8 +1473,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 2240.0000534057617, 892.857164144516, 150.0, 20.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 2240.0000534057617, 892.857164144516, 150.0, 20.0 ],
                     "text": "http://10.1.76.181:3000"
                 }
             },
@@ -1440,7 +1486,7 @@
                     "patching_rect": [ 1149.3333675861359, 1672.000049829483, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1102.564241886139, 1674.269443154335, 150.0, 33.0 ],
+                    "presentation_rect": [ 2468.2927417755127, 2497.56103515625, 150.0, 33.0 ],
                     "text": "proposing a tool and a performance?"
                 }
             },
@@ -1452,7 +1498,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1810.7990396022797, 1960.6058876514435, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1432.0000426769257, 1806.6667205095291, 150.0, 20.0 ],
+                    "presentation_rect": [ 2797.5610423088074, 2631.7073798179626, 150.0, 20.0 ],
                     "text": "buffer for saving"
                 }
             },
@@ -1466,7 +1512,7 @@
                     "patching_rect": [ 1413.4146678447723, 1765.8537006378174, 150.0, 47.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 1402.4390578269958, 1736.58540725708, 150.0, 47.0 ],
+                    "presentation_rect": [ 2765.8537244796753, 2560.975670814514, 150.0, 47.0 ],
                     "text": "audio input: make a real audio input using a audio interface could be cool!?"
                 }
             },
@@ -1480,7 +1526,7 @@
                     "patching_rect": [ 1398.718125462532, 1753.846375465393, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1373.077096581459, 1684.615597486496, 150.0, 33.0 ],
+                    "presentation_rect": [ 2736.585431098938, 2507.317132949829, 150.0, 33.0 ],
                     "text": "having some kind of dynamics!?"
                 }
             },
@@ -1492,7 +1538,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1411.5386399030685, 1670.5130316019058, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1355.128376364708, 1646.1540541648865, 150.0, 20.0 ],
+                    "presentation_rect": [ 2719.5122599601746, 2470.7317662239075, 150.0, 20.0 ],
                     "text": "modify one prsons sound?"
                 }
             },
@@ -1504,7 +1550,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1420.513000011444, 1606.4104593992233, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1341.0258104801178, 1606.4104593992233, 150.0, 20.0 ],
+                    "presentation_rect": [ 2704.878113269806, 2429.2683506011963, 150.0, 20.0 ],
                     "text": "idea: have a singer?"
                 }
             },
@@ -1518,7 +1564,7 @@
                     "patching_rect": [ 1178.2052770853043, 1624.3591796159744, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1102.564241886139, 1589.0, 150.0, 33.0 ],
+                    "presentation_rect": [ 2468.2927417755127, 2412.195179462433, 150.0, 33.0 ],
                     "text": "phone performance aspect!?"
                 }
             },
@@ -1532,7 +1578,7 @@
                     "patching_rect": [ 1062.8206471204758, 1619.2309738397598, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 1041.935491323471, 1551.2822473049164, 150.0, 33.0 ],
+                    "presentation_rect": [ 2407.3171305656433, 2375.6098127365112, 150.0, 33.0 ],
                     "text": "geared to live is realtime: cf.metasynth"
                 }
             },
@@ -1544,7 +1590,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1025.64115524292, 1562.8207103013992, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 747.4359918832779, 1547.4360929727554, 150.0, 20.0 ],
+                    "presentation_rect": [ 2112.1951723098755, 2370.7317638397217, 150.0, 20.0 ],
                     "text": "ink...!?"
                 }
             },
@@ -1556,7 +1602,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1052.5642355680466, 1664.1027743816376, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 935.8975541591644, 1729.4873980283737, 150.0, 20.0 ],
+                    "presentation_rect": [ 2300.000054836273, 2553.65859746933, 150.0, 20.0 ],
                     "text": "snapshot buttons!?"
                 }
             },
@@ -1568,7 +1614,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 912.8206281661987, 1680.769443154335, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 912.8206281661987, 1680.769443154335, 150.0, 20.0 ],
+                    "presentation_rect": [ 2278.04883480072, 2504.8781085014343, 150.0, 20.0 ],
                     "text": "interpolate snapshot...!"
                 }
             },
@@ -1582,7 +1628,7 @@
                     "patching_rect": [ 715.3847057819366, 1688.461751818657, 151.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 706.4103456735611, 1676.923288822174, 151.0, 33.0 ],
+                    "presentation_rect": [ 2070.7317566871643, 2500.000059604645, 151.0, 33.0 ],
                     "text": "patern storage can save a snapshot..."
                 }
             },
@@ -1594,7 +1640,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1918.7499268054962, 1057.2916263341904, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1984.0908901691437, 1061.363626241684, 150.0, 20.0 ],
+                    "presentation_rect": [ 1806.4516258239746, 2261.9047969579697, 150.0, 20.0 ],
                     "text": "sample add!"
                 }
             },
@@ -1606,7 +1652,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 37.499998569488525, 693.7499735355377, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ -68.74999737739563, 729.1666388511658, 150.0, 20.0 ],
+                    "presentation_rect": [ -23.809524178504944, 1984.127014875412, 150.0, 20.0 ],
                     "text": "frequency claer"
                 }
             },
@@ -1632,7 +1678,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 218.0, 1632.0, 154.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 188.0, 1646.0, 269.0, 20.0 ],
+                    "presentation_rect": [ 1553.658573627472, 2470.7317662239075, 269.0, 20.0 ],
                     "text": "Q3. 2 canvas or 1 canvas? The tradeoff"
                 }
             },
@@ -1645,7 +1691,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 203.0, 1617.0, 153.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 188.0, 1624.0, 269.0, 20.0 ],
+                    "presentation_rect": [ 1553.658573627472, 2448.7805461883545, 269.0, 20.0 ],
                     "text": "Q2. What feels most unique?"
                 }
             },
@@ -1658,7 +1704,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 188.0, 1602.0, 153.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 188.0, 1602.0, 269.0, 20.0 ],
+                    "presentation_rect": [ 1553.658573627472, 2426.8293261528015, 269.0, 20.0 ],
                     "text": "Q1. Can this dj network be improved?"
                 }
             },
@@ -2562,7 +2608,7 @@
                     "patching_rect": [ 1179.661045074463, 30.508475303649902, 244.0, 29.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 1651.6129150390625, 322.2580647468567, 244.0, 29.0 ],
-                    "text": "Extra Features"
+                    "text": "Connect Mobile Device"
                 }
             },
             {
@@ -3122,8 +3168,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 3493.4210193157196, 280.2631552219391, 150.0, 20.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 2013.6363444328308, 1134.0908982753754, 150.0, 20.0 ],
                     "text": "Use zigsim"
                 }
             },
@@ -3135,9 +3179,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 762.8319197893143, 44.247791171073914, 24.0, 24.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 2018.1817989349365, 1149.9999890327454, 105.0, 105.0 ]
+                    "patching_rect": [ 762.8319197893143, 44.247791171073914, 24.0, 24.0 ]
                 }
             },
             {
